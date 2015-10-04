@@ -2,8 +2,8 @@
   "build": ["touch /tmp/ijustranbuild", "touch /tmp/metoo"],
   "blah": "touch /tmp/ijustranblah",
   "employees": [
-    {"firstName":"John", "lastName":"Doe"}, 
-    {"firstName":"Anna", "lastName":"Smith"}, 
+    "Do stuff1", 
+    "Do stuff2", 
     {"firstName":"Peter","lastName":"Jones"}
   ],
   "asdf": {
