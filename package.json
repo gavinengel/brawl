@@ -1,0 +1,20 @@
+{
+  "name": "brawl",
+  "version": "1.0.0",
+  "description": "shell command-based node.js task runner",
+  "main": "brawl.js",
+  "scripts": {
+    "asfd": "asdfj lasjdf las df"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gavinengel/brawl.git"
+  },
+  "keywords": [],
+  "author": "Gavin Engel <gavin@engel.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gavinengel/brawl/issues"
+  },
+  "homepage": "https://github.com/gavinengel/brawl#readme"
+}

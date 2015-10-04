@@ -1,0 +1,12 @@
+{
+  "build": ["touch /tmp/ijustranbuild", "touch /tmp/metoo"],
+  "blah": "touch /tmp/ijustranblah",
+  "employees": [
+    {"firstName":"John", "lastName":"Doe"}, 
+    {"firstName":"Anna", "lastName":"Smith"}, 
+    {"firstName":"Peter","lastName":"Jones"}
+  ],
+  "asdf": {
+    "asdf2": "RUNME"
+  }
+}
