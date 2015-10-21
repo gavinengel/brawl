@@ -1,5 +1,7 @@
 {
-  "build": ["touch /tmp/ijustranbuild", "touch /tmp/metoo"],
+  "build": {
+    ">": ["touch /tmp/ijustranbuild", "touch /tmp/metoo"]
+  },
   "foo2": {
     ">": ["I am run last"],
     "foo3": {
