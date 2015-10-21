@@ -7,7 +7,8 @@
     "foo3": {
       ">": ["I am run second"],
       "foo4": {
-        ">": ["I am run first"]
+        "//": "run last; call other brawler",
+        ">": "build"
       }
     }
   },
