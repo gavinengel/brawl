@@ -4,11 +4,13 @@
   },
   "foo2": {
     ">": ["I am run last"],
-    "foo3": {
-      ">": ["I am run second"],
-      "foo4": {
-        "//": "run last; call other brawler",
-        ">": "build"
+    "assert": {
+      "foo3": {
+        ">": ["I am run second"],
+        "foo4": {
+          "//": "run last; call other brawler",
+          ">": "build"
+        }
       }
     }
   },
