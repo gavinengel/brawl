@@ -1,11 +1,19 @@
 {
   "build": ["touch /tmp/ijustranbuild", "touch /tmp/metoo"],
+  "foo2": {
+    ">": ["I am run last"],
+    "foo3": {
+      ">": ["I am run second"],
+      "foo4": {
+        ">": ["I am run first"]
+      }
+    }
+  },
   "blah": "touch /tmp/ijustranblah",
-  "employees": [
-    "Do stuff1", 
-    "Do stuff2", 
-    {"firstName":"Peter","lastName":"Jones"}
-  ],
+  "employees": {
+    ">": ["Do stuff1", "Do stuff2"],
+    "|": {"firstName":"Peter","lastName":"Jones"}
+  },
   "asdf": {
     "asdf2": "RUNME"
   }
