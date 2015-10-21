@@ -6,3 +6,54 @@ lint ... if that passes...
     then do something here ...
     
 how to do an assert?
+
+
+###
+
+
+/* Brocfile.js */
+
+var compileSass = require('broccoli-sass');
+var filterCoffeeScript = require('broccoli-coffee');
+var mergeTrees = require('broccoli-merge-trees');
+
+var sassDir = 'scss';
+var coffeeDir = 'coffeescript';
+
+var styles = compileSass([sassDir], 'app.scss', 'app.css');
+var scripts = filterCoffeeScript(coffeeDir);
+
+module.exports = mergeTrees([styles, scripts]);
+
+
+###
+
+
+Running "jshint:gruntfile" (jshint) task
+>> 1 file lint free.
+ 
+Running "jshint:src" (jshint) task
+>> 1 file lint free.
+ 
+Running "jshint:test" (jshint) task
+>> 1 file lint free.
+ 
+Running "qunit:files" (qunit) task
+Testing test/tiny-pubsub.html....OK
+>> 4 assertions passed (23ms)
+ 
+Running "clean:files" (clean) task
+Cleaning "dist"...OK
+ 
+Running "concat:dist" (concat) task
+File "dist/ba-tiny-pubsub.js" created.
+ 
+Running "uglify:dist" (uglify) task
+File "dist/ba-tiny-pubsub.min.js" created.
+Uncompressed size: 389 bytes.
+Compressed size: 119 bytes gzipped (185 bytes minified).
+ 
+Done, without errors.
+ 
+ 
+ ###
