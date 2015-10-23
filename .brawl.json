@@ -4,7 +4,7 @@
   },
   "foo2": {
     ">": ["I am run last"],
-    "assert": {
+    "?": {
       "expected": [],
       "pass": {
         "foo3": {
