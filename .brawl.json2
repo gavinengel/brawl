@@ -1,0 +1,130 @@
+{
+  "vars": {
+    "public": "=./public/"
+  },
+  "build": ["touch /tmp/ijustranbuild", "touch /tmp/metoo"],
+  "blah": "touch /tmp/ijustranblah",
+  "employees": [
+    {"firstName":"John", "lastName":"Doe"}, 
+    {"firstName":"Anna", "lastName":"Smith"}, 
+    {"firstName":"Peter","lastName":"Jones"}
+  ],
+  "asdf": {
+    "asdf2": "RUNME"
+  },
+  "less": ["lessc bootstrap.less public/css/bootstrap.css; lessc ace.less public/css/ace.css; lessc app.less public/css/app.css"]
+}
+
+
+// previous
+
+
+/*
+ |--------------------------------------------------------------------------
+ | Elixir Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Elixir provides a clean, fluent API for defining some basic Gulp tasks
+ | for your Laravel application. By default, we are compiling the Less
+ | file for our application, as well as publishing vendor resources.
+ |
+ */
+elixir.extend('livereload', function(src, output) {
+
+    gulp.task('livereload', function() {
+        livereload.listen();
+        gulp.on('stop', function(){
+            livereload.changed('0.0.0.0');
+        });
+    });
+    this.registerWatcher('livereload');
+    return this.queueTask('livereload');
+
+});
+
+// LESS compilation
+elixir(function(mix) {
+    /*mix.less([
+        'bootstrap.less',
+        'ace.less',
+        'app.less'
+    ]);*/
+
+    mix
+      .less('bootstrap.less', 'public/css/bootstrap.css')
+      .less('ace.less', 'public/css/ace.css')
+      .less('app.less', 'public/css/app.css');
+});
+
+// JS bundling
+elixir(function(mix) {
+    mix.browserify('app.js');
+    mix.browserify('vendor.js', 'public/js/vendor.js');
+});
+
+// Vendor bundling
+elixir(function(mix) {
+    mix.styles([
+        '../../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css',
+        'font-awesome.css'
+    ], 'public/css/vendor.css', 'resources/assets/vendor');
+
+    // Ace files
+    mix.scripts([
+        'ace.min.js',
+        'ace-elements.min.js'
+    ], 'public/js/ace.js', 'resources/assets/vendor/ace-core');
+
+    // IE-specific stylesheets and js that need their own files
+    mix.scripts(['html5shiv.js', 'respond.js'], 'public/js/vendor-ie.js', 'resources/assets/vendor');
+    mix.scripts(['jquery-2.1.4.min.js'], 'public/js/jquery.js', 'resources/assets/vendor');
+    mix.scripts(['jquery1x.min.js'], 'public/js/jquery1x.js', 'resources/assets/vendor');
+    mix.styles(['ace-ie.css'], 'public/css/ace-ie.css', 'resources/assets/vendor');
+    mix.scripts(['datatables.min.js'], 'public/js/datatables.js', 'resources/assets/vendor');
+    mix.styles(['datatables.min.css', 'dataTables.fontAwesome.css'], 'public/css/datatables.css', 'resources/assets/vendor');
+    mix.scripts(['ace-extra.min.js'], 'public/js/ace-extra.js', 'resources/assets/vendor/ace-core');
+    mix.scripts(['additional-methods.js'], 'public/js/jquery-validation-extras.js', 'bower_components/jquery-validation/dist');
+    mix.scripts(['jquery.mobile.custom.min.js'], 'public/js/jquery.mobile.min.js', 'resources/assets/vendor');
+});
+
+//elixir(function(mix) {
+//    // Kendo UI asset management
+//
+//    // CSS
+//    mix.styles([
+//        'kendo.common-bootstrap.min.css',
+//        'kendo.bootstrap.min.css'
+//    ], 'public/css/kendo.css', 'resources/assets/vendor/kendo/css');
+//
+//    // JS
+//    mix.scripts([
+//        'kendo.all.min.js'
+//    ], 'public/js/kendo.js', 'resources/assets/vendor/kendo/js');
+//
+//    // Theme folder
+//    mix.copy('resources/assets/vendor/kendo/css/Bootstrap', 'public/css/Bootstrap');
+//    mix.copy('resources/assets/vendor/kendo/css/textures', 'public/css/textures');
+//
+//});
+
+/**
+ * Logic for LiveReload to work properly on watch task.
+ */
+gulp.on('task_start', function (e) {
+    // only start LiveReload server if task is 'watch'
+    if (e.task === 'watch' || e.task === 'watchify') {
+        livereload.listen({
+            'host': '0.0.0.0'
+        });
+    }
+});
+gulp.task('watch-lr-css', function () {
+    // notify a CSS change, so that livereload can update it without a page refresh
+    livereload.changed('templates.css');
+});
+gulp.task('watch-lr', function () {
+    // notify any other changes, so that livereload can refresh the page
+    livereload.changed('all.js');
+});
+
+elixir.config.registerWatcher('default', 'resources/assets/*/**');
