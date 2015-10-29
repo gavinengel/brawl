@@ -15,7 +15,7 @@ var bar = (
     
   } 
 )
-
+console.log(bar.attr())
 var me = {1:'3', 3:4};
 bar.attrs = function(any) {return any}
 /*
