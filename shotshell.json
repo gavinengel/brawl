@@ -1,0 +1,17 @@
+{
+  "build": {
+    "sh": "touch /tmp/build.txt",
+    "build2": {
+      "sh": "touch /tmp/build2.txt",
+      "build3": {
+        "sh": "touch /tmp/build3.txt"
+      },
+      "build4": {
+        "sh": "touch /tmp/build4.txt"
+      },
+      "build5": {
+        "sh": "touch /tmp/build5.txt"
+      }
+    }
+  }
+}

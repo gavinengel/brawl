@@ -1,0 +1,309 @@
+build: {
+  @cmd: 'touch /tmp/ijustranbuild'
+}
+
+foo2 {
+  @cmd: 'I am run last'
+  @assert: something > asdf
+  @fail: asdf asdf
+
+  foo3: {
+    @cmd: 'I am run second'
+    foo4: {
+      # run last; call other shotsheller
+      @cmd: '$.build'
+      @rdir: '$.employees'
+    }  
+  }
+}
+
+blah(hover: asdf): 'touch /tmp/ijustranblah'
+
+employees: {
+  $: 'Do stuff1'
+  |: 'firstName'
+  asdf: {
+    asdf2: 'RUNME'
+  }
+}
+
+
+<div asf="asdf" asdf asss="11">asdf<p>asdf123<p></div>
+
+
+div (
+    asf <= asdf
+    fff: asdf > sdff < asdff
+    asss: 11
+  ){
+    asdf
+    p {
+      asdf123
+    }
+    csv [
+      col1 | col2 | col3
+      asd  | ff   | fff
+      as   | 132  | fhk
+      hhh  |      | asfd
+    ]
+}
+
+<!DOCTYPE html>
+
+# final1
+div { 
+  (href: asdf, title, asdf)
+  asdf
+  p {
+    :asdf123
+    div: $hgf
+  }
+  csv {
+    col1 [ 1asd,  2ff,   3fff   ] 
+    col2 [ 1asd,  2ff,   3fff   ] 
+    col3 [ 1asd,  2ff,   3fff   ]
+  }
+  asdf [
+
+  ]
+}
+
+
+# final2
+<p>asdf<style>asdf</style></p>
+
+p {
+  asdf
+  style: asdf
+}
+
+
+div (href: asdf, title, asdf) { 
+  asdf
+  p:asdf123 {
+    
+    div: $hgf
+  }
+  csv {
+    col1 { 1asd,  2ff,   3fff   } 
+    col2 { 1asd,  2ff,   3fff   } 
+    col3 { 1asd,  2ff,   3fff   }
+  }
+  asdf {
+
+  }
+}
+
+1     2     3
+a     b     c
+aa    bb    cc
+
+1 [a, aa]
+2 [b, bb]
+3 [c, cc]
+
+people {
+  {
+    name: gavin;
+    ht: 6'0";
+  }
+
+  {
+    name: erin;
+    ht: 5'8";
+  }
+}
+
+
+people (name, ht) [
+  (gavin, 6)
+  (erin, 5)
+]
+
+<people name=gavin ht=6></people>
+<people name=erin ht=5></people>
+
+
+people {
+  name: gavin
+  ht: 6;
+}
+people {
+  name: erin
+  ht: 5;
+}
+
+#######################################################################################
+# arrays
+### 1
+people [
+  {name: gavin, ht: 6}
+  {name: erin, ht: 5}
+]
+
+people[0].name = gavin
+
+
+### 2
+people [
+  name [gavin, erin]
+  ht [6, b5]
+]
+people['name'][0] = gavin
+
+
+### 3
+people [
+  |name, ht|
+  [gavin, 6]
+  [erin: 5]
+]
+people[0].name = gavin
+
+### 4
+people {    
+  name [gavin, erin]
+  ht [6, b5]
+}
+
+people.name[0] = gavin
+
+#######################################################################################
+
+
+#######################################################################################
+# arrays
+### 1
+people {
+  {id, 1, name: gavin, ht: 6}
+  {id, 2, name: erin, ht: 5}
+}
+
+people[0].name = gavin
+
+
+### 2
+people {
+  id {1, 2}
+  name {gavin, erin}
+  ht {6, b5}
+}
+people.name[0] = gavin
+
+
+### 3
+people {
+    [ name,   ht ]
+  1 { gavin,  6  }
+  2 { erin,   5  }
+}
+*** people[2].name = erin
+
+
+### 4
+people {
+  id {1, 2}    
+  name {gavin, erin}
+  ht {6, b5}
+}
+
+people.name[0] = gavin
+
+#######################################################################################
+
+
+
+people [
+  {name: gavin, ht: 6}
+  {name: erin, ht: 5}
+  
+  name [gavin, erin]
+  ht [6, b5]
+
+
+  (safd, asdf, asdf)
+  |name, ht|
+  [gavin, 6]
+  [erin: 5]
+
+
+]
+people {
+  name: erin
+  ht: 5;
+}
+
+
+<people><name>gavin</name><ht>6</ht></people>
+<people><name>gavin</name><ht>6</ht></people>
+
+people.name[0] = gavin
+people[0].name = gavin
+
+people[1].ht = 5
+
+people[0]['attr'].name = gavin
+
+
+td[1]
+
+
+
+csv[col2][2]
+
+table (style {width:100%}) {
+  tr [
+    td [
+      Jill
+      Smith 
+      50
+    ]
+    td [
+      Eve
+      Jackson 
+      94
+    ]
+  ]
+}
+
+
+table {
+  tr {
+    td Twitter
+    td blog
+  }
+  tr {
+    td [
+      Twitter
+      blog
+    ]
+  }
+}
+
+
+col1  col2  col3
+asd   ff    fff
+as    132   fhk
+hhh         asfd
+
+
+[
+  col1 | col2 | col3
+  asd  | ff   | fff
+  as   | 132  | fhk
+  hhh  |      | asfd
+]
+
+
+<table style="width:100%">
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td> 
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td> 
+    <td>94</td>
+  </tr>
+</table>
