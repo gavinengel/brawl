@@ -12,6 +12,16 @@ function (err, results) {
 });
 
 ###
+=======
+
+## set a bash alias, as a config item... then run shotshell
+$ SHOTSHELL[fooo]='bar'
+## echo ${SHOTSHELL[fooo]}
+$ shotshell;
+## ... it uses SHOTSHELL internally on your stuff.
+
+###
+
 be able to perform this:
 
 
