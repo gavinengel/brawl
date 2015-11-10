@@ -2,7 +2,7 @@
   "build": {
     "sh": "touch /tmp/build.txt",
     "build2": {
-      "sh": "touch /tmp/build2.txt",
+      "sh": "sleep 3",
       "build3": {
         "sh": "touch /tmp/build3.txt"
       },
