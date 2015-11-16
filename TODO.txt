@@ -1,3 +1,8 @@
+
+why not chef? https://learn.chef.io/manage-a-web-app/rhel/create-the-web-admin-user/
+
+###
+
 async = require('async')
 var sys = require('sys'),
     exec = require('child_process').exec;
